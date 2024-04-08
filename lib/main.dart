@@ -20,36 +20,60 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final TextEditingController _searchController = TextEditingController();
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  bool _isHovered = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: SizedBox(
-          width: 200,
+          width: _isHovered ? 250 : 200, // Adjusted width when hovered
           height: 30,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(4),
-            ),
-            child: TextField(
-              controller: _searchController,
-              style: const TextStyle(color: Colors.black),
-              cursorColor: Colors.white,
-              textDirection: TextDirection.rtl,
-              textAlign: TextAlign.right,
-              decoration:  InputDecoration(
-                icon:Icon(Icons.search_rounded , color: Color(0xFF1D943C),) ,
-                iconColor: Colors.black,
-                hintText: '... جست و جو',
-                hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Far_Dinar_Two_Medium',fontWeight: FontWeight.w400  ),
-                border: InputBorder.none,
+          child: MouseRegion(
+            onEnter: (_) => setState(() => _isHovered = true),
+            onExit: (_) => setState(() => _isHovered = false),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(4),
               ),
-              onChanged: (value) {
-                // Perform search functionality here
-              },
+              child: TextField(
+                style: const TextStyle(color: Colors.black),
+                cursorColor: Colors.white,
+                textDirection: TextDirection.rtl,
+                textAlign: TextAlign.right,
+                decoration: InputDecoration(
+                  icon: AnimatedSwitcher(
+                    duration: Duration(milliseconds: 500),
+                    child: _isHovered
+                        ? RotationTransition(
+                      turns: AlwaysStoppedAnimation(0.25),
+                      child: Icon(Icons.search_rounded,
+                          key: UniqueKey(),
+                          color: Color(0xFF1D943C)),
+                    )
+                        : Icon(Icons.search_rounded,
+                        key: UniqueKey(),
+                        color: Color(0xFF1D943C)),
+                  ),
+                  iconColor: Colors.black,
+                  hintText: '... جست و جو',
+                  hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontFamily: 'Far_Dinar_Two_Medium',
+                      fontWeight: FontWeight.w400),
+                  border: InputBorder.none,
+                ),
+                onChanged: (value) {
+                  // Perform search functionality here
+                },
+              ),
             ),
           ),
         ),
@@ -64,7 +88,10 @@ class MyHomePage extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.only(top: 16),
-              child: Text('تبلیغات' ,  style: TextStyle( fontFamily: 'Far_Dinar_Two_Medium',fontWeight: FontWeight.w400)),
+              child: Text('تبلیغات',
+                  style: TextStyle(
+                      fontFamily: 'Far_Dinar_Two_Medium',
+                      fontWeight: FontWeight.w400)),
             ),
           ),
           SizedBox(width: 24), // Add some space between words
@@ -77,7 +104,10 @@ class MyHomePage extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.only(top: 16),
-              child: Text('برچسب ها' ,  style: TextStyle( fontFamily: 'Far_Dinar_Two_Medium',fontWeight: FontWeight.w400)),
+              child: Text('برچسب ها',
+                  style: TextStyle(
+                      fontFamily: 'Far_Dinar_Two_Medium',
+                      fontWeight: FontWeight.w400)),
             ),
           ),
           SizedBox(width: 24), // Add some space between words
@@ -90,7 +120,10 @@ class MyHomePage extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.only(top: 16),
-              child: Text('تماس با ما' ,  style: TextStyle( fontFamily: 'Far_Dinar_Two_Medium',fontWeight: FontWeight.w400)),
+              child: Text('تماس با ما',
+                  style: TextStyle(
+                      fontFamily: 'Far_Dinar_Two_Medium',
+                      fontWeight: FontWeight.w400)),
             ),
           ),
           SizedBox(width: 24), // Add some space between words
@@ -103,7 +136,10 @@ class MyHomePage extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.only(top: 16),
-              child: Text('صفحه اصلی' ,  style: TextStyle( fontFamily: 'Far_Dinar_Two_Medium',fontWeight: FontWeight.w400)),
+              child: Text('صفحه اصلی',
+                  style: TextStyle(
+                      fontFamily: 'Far_Dinar_Two_Medium',
+                      fontWeight: FontWeight.w400)),
             ),
           ),
           SizedBox(width: 16), // Add some space at the end
