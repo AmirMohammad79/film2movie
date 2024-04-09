@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 class CategoryBox extends StatelessWidget {
   final String title;
   final List<String> texts;
+  final double height;
+  final bool visible;
   const CategoryBox({
     Key? key,
     required this.title,
     required this.texts,
+    required this.height, required this.visible,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,12 @@ class CategoryBox extends StatelessWidget {
                       Icons.note,
                       color: Colors.grey,
                     ),
+                    SizedBox(
+                      width: 2,
+                    ),
+                    VerticalDivider(
+                      width: 10,
+                    )
                   ],
                 ),
                 Text(title,
@@ -46,7 +55,7 @@ class CategoryBox extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(8),
             width: 280,
-            height: 125,
+            height: height,
             decoration: BoxDecoration(
               color: Color(0xffEFEEEE),
               borderRadius: BorderRadius.only(
@@ -58,17 +67,31 @@ class CategoryBox extends StatelessWidget {
               itemCount: texts.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-                  child: Text(
-                    texts[index],
-                    textAlign: TextAlign.right,
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                      fontFamily: 'tahoma',
-                      fontSize: 12,
-                      color: Color(0xff337ab7),
-                    ),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        texts[index],
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                          fontFamily: 'tahoma',
+                          fontSize: 12,
+                          color: Color(0xff337ab7),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Visibility(
+                        visible: visible,
+                          child: Icon(
+                        Icons.circle_sharp,
+                        color: Colors.grey,
+                        size: 6,
+                      )),
+                    ],
                   ),
                 );
               },
