@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onEnter: (_) => setState(() => _isHovered = true),
                     onExit: (_) => setState(() => _isHovered = false),
                     child: Container(
-                      padding: EdgeInsets.only(right: 8),
+                      padding: const EdgeInsets.only(right: 8),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(4),
@@ -43,20 +43,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         textAlign: TextAlign.right,
                         decoration: InputDecoration(
                           icon: AnimatedSwitcher(
-                            duration: Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 500),
                             child: _isHovered
                                 ? RotationTransition(
-                                    turns: AlwaysStoppedAnimation(0.25),
+                                    turns: const AlwaysStoppedAnimation(0.25),
                                     child: Icon(Icons.search_rounded,
                                         key: UniqueKey(),
-                                        color: Color(0xFF1D943C)),
+                                        color: const Color(0xFF1D943C)),
                                   )
                                 : Icon(Icons.search_rounded,
-                                    key: UniqueKey(), color: Color(0xFF1D943C)),
+                                    key: UniqueKey(),
+                                    color: const Color(0xFF1D943C)),
                           ),
                           iconColor: Colors.black,
                           hintText: '... جست و جو',
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               color: Colors.black45,
                               fontSize: 15,
                               fontFamily: 'Far_Dinar_Two_Medium',
@@ -71,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 actions: <Widget>[
-                  SizedBox(width: 16), // Add some space before words
+                  const SizedBox(width: 16), // Add some space before words
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             builder: (context) => ReturnHomePage()),
                       );
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(top: 16),
                       child: Text('تبلیغات',
                           style: TextStyle(
@@ -88,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontWeight: FontWeight.w400)),
                     ),
                   ),
-                  SizedBox(width: 24), // Add some space between words
+                  const SizedBox(width: 24), // Add some space between words
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(builder: (context) => ContactUs()),
                       );
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(top: 16),
                       child: Text('برچسب ها',
                           style: TextStyle(
@@ -104,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontWeight: FontWeight.w400)),
                     ),
                   ),
-                  SizedBox(width: 24), // Add some space between words
+                  const SizedBox(width: 24), // Add some space between words
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -112,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(builder: (context) => Labels()),
                       );
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(top: 16),
                       child: Text('تماس با ما',
                           style: TextStyle(
@@ -120,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontWeight: FontWeight.w400)),
                     ),
                   ),
-                  SizedBox(width: 24), // Add some space between words
+                  const SizedBox(width: 24), // Add some space between words
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -128,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(builder: (context) => Advertising()),
                       );
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(top: 16),
                       child: Text('صفحه اصلی',
                           style: TextStyle(
@@ -136,27 +137,27 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontWeight: FontWeight.w400)),
                     ),
                   ),
-                  SizedBox(width: 16), // Add some space at the end
+                  const SizedBox(width: 16), // Add some space at the end
                 ],
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 4,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage(
                           "assets/images/banner.png",
                         ))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   //Left side of site
-                  Column(
+                  const Column(
                     children: <Widget>[
                       CategoryBox(
                         title: 'اخبار سایت',
@@ -250,13 +251,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       Column(
                         children: <Widget>[
                           Container(
-                            padding: EdgeInsets.all(16),
-                            margin: EdgeInsets.only(left: 8, right: 8, top: 8),
+                            padding: const EdgeInsets.all(16),
+                            margin: const EdgeInsets.only(
+                                left: 8, right: 8, top: 8),
                             width: 900,
                             height: 80,
                             decoration: BoxDecoration(
-                              color: Color(0xffEFEEEE),
-                              borderRadius: BorderRadius.only(
+                              color: const Color(0xffEFEEEE),
+                              borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(4),
                                 topLeft: Radius.circular(4),
                               ),
@@ -264,10 +266,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xff337ab7),
+                                  color: const Color(0xff337ab7),
                                   borderRadius: BorderRadius.circular(8)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
+                              child: const Padding(
+                                padding: EdgeInsets.only(right: 8.0),
                                 child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Text('آخرین اخبار جهان',
@@ -284,7 +286,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             height: 300,
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(4),
                                   bottomRight: Radius.circular(4),
                                 ),
@@ -293,21 +295,25 @@ class _MyHomePageState extends State<MyHomePage> {
                               children: <Widget>[
                                 Container(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Container(
-                                        margin: EdgeInsets.all(8),
-                                        padding: EdgeInsets.all(4),
+                                        margin: const EdgeInsets.all(8),
+                                        padding: const EdgeInsets.all(4),
                                         color: Colors.grey[50],
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
+                                        child: const Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
                                           children: [
                                             Row(
                                               children: [
                                                 Text(
                                                   '۱۵ دی ۱۴۰۰',
-                                                  textDirection: TextDirection.rtl,
+                                                  textDirection:
+                                                      TextDirection.rtl,
                                                   textAlign: TextAlign.right,
                                                   style: TextStyle(
                                                     fontFamily: 'tahoma',
@@ -315,7 +321,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                SizedBox(width: 2,),
+                                                SizedBox(
+                                                  width: 2,
+                                                ),
                                                 Icon(
                                                   Icons.watch_later_outlined,
                                                   size: 12,
@@ -327,96 +335,114 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       Container(
-                                        child: Row(children: [Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                          children: <Widget>[
-                                            Text(
-                                              '۲۰ فیلم برتر سال ۲۰۲۱ به انتخاب فیلم تو مووی',
-                                              textDirection: TextDirection.rtl,
-                                              textAlign: TextAlign.right,
-                                              style: TextStyle(
-                                                fontFamily: 'tahoma',
-                                                fontSize: 12,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 6,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                              children: [
-                                                Icon(
-                                                  Icons
-                                                      .keyboard_double_arrow_left_rounded,
-                                                  color: Color(0xff337ab7),
-                                                  size: 9,
+                                        child: Row(
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: <Widget>[
+                                                const Text(
+                                                  '۲۰ فیلم برتر سال ۲۰۲۱ به انتخاب فیلم تو مووی',
+                                                  textDirection:
+                                                      TextDirection.rtl,
+                                                  textAlign: TextAlign.right,
+                                                  style: TextStyle(
+                                                    fontFamily: 'tahoma',
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
-                                                TextButton(
-                                                    onPressed: () {},
-                                                    child: Text(
-                                                      'مشاهده ادامه متن',
-                                                      style: TextStyle(
-                                                        fontFamily: 'tahoma',
-                                                        fontSize: 9,
-                                                        color: Color(0xff337ab7),
-                                                      ),
-                                                    )),
+                                                const SizedBox(
+                                                  height: 6,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    const Icon(
+                                                      Icons
+                                                          .keyboard_double_arrow_left_rounded,
+                                                      color: Color(0xff337ab7),
+                                                      size: 9,
+                                                    ),
+                                                    TextButton(
+                                                        onPressed: () {},
+                                                        child: const Text(
+                                                          'مشاهده ادامه متن',
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'tahoma',
+                                                            fontSize: 9,
+                                                            color: Color(
+                                                                0xff337ab7),
+                                                          ),
+                                                        )),
+                                                  ],
+                                                )
                                               ],
-                                            )
+                                            ),
+                                            Container(
+                                              margin: const EdgeInsets.all(8),
+                                              width: 250,
+                                              height: 125,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(16),
+                                                  image: const DecorationImage(
+                                                    fit: BoxFit.fitWidth,
+                                                    image: AssetImage(
+                                                      'assets/images/1 (2).png',
+                                                    ),
+                                                  )),
+                                            ),
                                           ],
                                         ),
-                                          Container(
-                                            margin: EdgeInsets.all(8),
-                                            width: 250,
-                                            height: 125,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(16),
-                                                image: DecorationImage(
-                                                  fit: BoxFit.fitWidth,
-                                                  image: AssetImage(
-                                                    'assets/images/1 (2).png',
-                                                  ),
-                                                )),
-                                          ),],),
                                       )
                                     ],
                                   ),
                                 ),
-                                Divider(color: Colors.grey,),
+                                const Divider(
+                                  color: Colors.grey,
+                                ),
                                 Container(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.all(8),
-                                            padding: EdgeInsets.all(4),
+                                            margin: const EdgeInsets.all(8),
+                                            padding: const EdgeInsets.all(4),
                                             color: Colors.grey[50],
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
+                                            child: const Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
                                               children: [
                                                 Row(
                                                   children: [
                                                     Text(
                                                       '۱۵ دی ۱۴۰۰',
-                                                      textDirection: TextDirection.rtl,
-                                                      textAlign: TextAlign.right,
+                                                      textDirection:
+                                                          TextDirection.rtl,
+                                                      textAlign:
+                                                          TextAlign.right,
                                                       style: TextStyle(
                                                         fontFamily: 'tahoma',
                                                         fontSize: 12,
                                                         color: Colors.black,
                                                       ),
                                                     ),
-                                                    SizedBox(width: 2,),
+                                                    SizedBox(
+                                                      width: 2,
+                                                    ),
                                                     Icon(
-                                                      Icons.watch_later_outlined,
+                                                      Icons
+                                                          .watch_later_outlined,
                                                       size: 12,
                                                       color: Colors.black,
                                                     )
@@ -425,84 +451,96 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ],
                                             ),
                                           ),
-                                          SizedBox(height: 62.5,),
+                                          const SizedBox(
+                                            height: 62.5,
+                                          ),
                                           Container(
-                                            margin: EdgeInsets.only(left:38 ),
+                                            margin:
+                                                const EdgeInsets.only(left: 38),
                                             width: 120,
                                             height: 40,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                                 color: Color(0xff1D943C),
                                                 borderRadius: BorderRadius.only(
                                                   topLeft: Radius.circular(16),
                                                   topRight: Radius.circular(16),
-                                                )
-                                            ),
-                                            child: Center(
-                                              child: Text('آرشیو آخبار' , style: TextStyle(
-                                                  fontFamily: 'Far_Dinar_Two_Medium',
-                                                  fontSize: 15,
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w400)),
+                                                )),
+                                            child: const Center(
+                                              child: Text('آرشیو آخبار',
+                                                  style: TextStyle(
+                                                      fontFamily:
+                                                          'Far_Dinar_Two_Medium',
+                                                      fontSize: 15,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w400)),
                                             ),
                                           )
                                         ],
                                       ),
                                       Container(
-                                        child: Row(children: [Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                          children: <Widget>[
-                                            Text(
-                                              'نگاهی به عملکرد پلتفرم‌های دیجیتال در سال کابوس‌وار ۲۰۲۱',
-                                              textDirection: TextDirection.rtl,
-                                              textAlign: TextAlign.right,
-                                              style: TextStyle(
-                                                fontFamily: 'tahoma',
-                                                fontSize: 12,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 6,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                              children: [
-                                                Icon(
-                                                  Icons
-                                                      .keyboard_double_arrow_left_rounded,
-                                                  color: Color(0xff337ab7),
-                                                  size: 9,
+                                        child: Row(
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: <Widget>[
+                                                const Text(
+                                                  'نگاهی به عملکرد پلتفرم‌های دیجیتال در سال کابوس‌وار ۲۰۲۱',
+                                                  textDirection:
+                                                      TextDirection.rtl,
+                                                  textAlign: TextAlign.right,
+                                                  style: TextStyle(
+                                                    fontFamily: 'tahoma',
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
-                                                TextButton(
-                                                    onPressed: () {},
-                                                    child: Text(
-                                                      'مشاهده ادامه متن',
-                                                      style: TextStyle(
-                                                        fontFamily: 'tahoma',
-                                                        fontSize: 9,
-                                                        color: Color(0xff337ab7),
-                                                      ),
-                                                    )),
+                                                const SizedBox(
+                                                  height: 6,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    const Icon(
+                                                      Icons
+                                                          .keyboard_double_arrow_left_rounded,
+                                                      color: Color(0xff337ab7),
+                                                      size: 9,
+                                                    ),
+                                                    TextButton(
+                                                        onPressed: () {},
+                                                        child: const Text(
+                                                          'مشاهده ادامه متن',
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'tahoma',
+                                                            fontSize: 9,
+                                                            color: Color(
+                                                                0xff337ab7),
+                                                          ),
+                                                        )),
+                                                  ],
+                                                )
                                               ],
-                                            )
+                                            ),
+                                            Container(
+                                              margin: const EdgeInsets.all(8),
+                                              width: 250,
+                                              height: 125,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(16),
+                                                  image: const DecorationImage(
+                                                    fit: BoxFit.fitWidth,
+                                                    image: AssetImage(
+                                                      'assets/images/2 (2).png',
+                                                    ),
+                                                  )),
+                                            ),
                                           ],
                                         ),
-                                          Container(
-                                            margin: EdgeInsets.all(8),
-                                            width: 250,
-                                            height: 125,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(16),
-                                                image: DecorationImage(
-                                                  fit: BoxFit.fitWidth,
-                                                  image: AssetImage(
-                                                    'assets/images/2 (2).png',
-                                                  ),
-                                                )),
-                                          ),],),
                                       )
                                     ],
                                   ),
@@ -513,7 +551,105 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       )
                     ],
-                  )
+                  ),
+                  //Right side of site
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(top: 8),
+                        width: 275,
+                        height: 80,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                                image: AssetImage('assets/images/tele.png'))),
+                      ),
+                      CategoryBox(
+                        title: 'اخبار سایت',
+                        visible: false,
+                        height: 125,
+                        texts: [
+                          'آموزش هماهنگ کردن زیر نویس با هر فرمتی',
+                          'انواع کیفیت فیلم ها',
+                          ' آموزش تعویض صدا در فیلم های دوبله'
+                        ],
+                      ),
+                      CategoryBox(
+                        title: 'آخرین مطالب',
+                        visible: true,
+                        height: 600,
+                        texts: [
+                          'دانلود سریال Shogun',
+                          'دانلود فیلم Kung Fu Panda 4 2024',
+                          'دانلود فیلم Mission Chapter 1 2024',
+                          'دانلود فیلم Napoleon 2023',
+                          'دانلود فیلم The Equalizer 3 2023',
+                          'دانلود فیلم Scoop 2024',
+                          'دانلود سریال Fedakar',
+                          'دانلود فیلم Sleeping Dogs 2024',
+                          'دانلود فیلم Dune Part Two 2024',
+                          'دانلود فیلم Baghead 2023',
+                          'دانلود سریال A Gentleman in Moscow',
+                          'دانلود سریال Renegade Nell',
+                          'دانلود سریال parasyte the grey',
+                          'دانلود فیلم A Long Goodbye 2019',
+                          'دانلود فیلم A Paris Proposal 2023',
+                          'دانلود سریال Parish',
+                          'دانلود برنامه شب آهنگی',
+                          'دانلود فیلم Southpaw 2015',
+                          'دانلود سریال The Last Ship'
+                        ],
+                      ),
+                      CategoryBox(
+                        title: 'متفرقه',
+                        visible: true,
+                        height: 860,
+                        texts: [
+                          'All Device',
+                          'Dexter',
+                          'آخرین اخبار سینمای جهان',
+                          'انیمه',
+                          'برنامه تلویزیونی',
+                          'پشت صحنه',
+                          'پیش نمایش',
+                          'تریلرهای جدید هفته',
+                          'حیات وحش',
+                          'دیالوگ ماندگار',
+                          'زمین',
+                          'سانسور شده',
+                          'سریال',
+                          'سریال ایرانی',
+                          'سریال ترکی',
+                          'سریال چینی',
+                          'سریال ژاپنی',
+                          'سریال کره ای',
+                          'علم و تکنولوژی',
+                          'کمیک بوک',
+                          'کهکشان',
+                          'ما قبل تاریخ',
+                          'مسابقات',
+                          'مقاله',
+                          'موسیقی متن',
+                          'نشنال جئوگرافیک',
+                          'نقد و بررسی',
+                          'هاردساب فارسی'
+                        ],
+                      ),
+                      CategoryBox(
+                          title: 'لینک های مهم',
+                          texts: [
+                            ' دانلود رایگان فیلم',
+                            ' دانلود سریال عاشقانه قسمت ۱۷ هفدهم'
+                          ],
+                          height: 80,
+                          visible: true),
+                      CategoryBox(
+                          title: 'تبلیغات',
+                          texts: [],
+                          height: 16,
+                          visible: false)
+                    ],
+                  ),
                 ],
               )
             ],
