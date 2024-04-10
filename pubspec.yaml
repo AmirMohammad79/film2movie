@@ -60,7 +60,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   assets:
-    - assets/images/
+    - assets/images/banner.png
+    - assets/images/1 (2).png
+    - assets/images/2 (2).png
   fonts:
     - family: Far_Dinar_Two_Medium
       fonts:
