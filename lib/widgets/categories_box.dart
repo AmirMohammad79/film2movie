@@ -5,11 +5,12 @@ class CategoryBox extends StatelessWidget {
   final List<String> texts;
   final double height;
   final bool visible;
+  final IconData icon;
   const CategoryBox({
     Key? key,
     required this.title,
     required this.texts,
-    required this.height, required this.visible,
+    required this.height, required this.visible, required this.icon,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CategoryBox extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      Icons.note,
+                      icon,
                       color: Colors.grey,
                     ),
                     SizedBox(
