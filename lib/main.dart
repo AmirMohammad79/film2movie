@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'mainHomePage.dart';
+import 'movies.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,13 +16,13 @@ class MyApp extends StatelessWidget {
         dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch, PointerDeviceKind.stylus, PointerDeviceKind.unknown},
       ),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Film2Movie',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: const Color(0xFF1D943C),
         ),
       ),
-      home: MyHomePage(),
+      home: PaginatedContainerList(itemCount: 8000,),
     );
   }
 }
