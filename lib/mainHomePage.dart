@@ -1,10 +1,12 @@
 import 'package:film2movie/labels.dart';
 import 'package:film2movie/widgets/left_side_of_site.dart';
+import 'package:film2movie/widgets/news_section.dart';
 import 'package:film2movie/widgets/right_side_of_site.dart';
 import 'package:flutter/material.dart';
 import 'advertising.dart';
 import 'maniHomePageReturn.dart';
 import 'contactUs.dart';
+import 'package:film2movie/movies.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -158,322 +160,178 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   //Left side of site
-                  const LeftSideOfSite(),
-                  //movies list side of home page
+                  LeftSideOfSite(),
+                  //News  and movies list side of home page
                   Column(
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(16),
-                            margin: const EdgeInsets.only(
-                                left: 8, right: 8, top: 8),
-                            width: 900,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffEFEEEE),
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(4),
-                                topLeft: Radius.circular(4),
-                              ),
-                              border: Border.all(color: Colors.grey),
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: const Color(0xff337ab7),
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: const Padding(
-                                padding: EdgeInsets.only(right: 8.0),
-                                child: Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text('آخرین اخبار جهان',
-                                        style: TextStyle(
-                                            fontFamily: 'Far_Dinar_Two_Medium',
-                                            fontSize: 25,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400))),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: 900,
-                            height: 300,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(4),
-                                  bottomRight: Radius.circular(4),
-                                ),
-                                border: Border.all(color: Colors.grey)),
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        margin: const EdgeInsets.all(8),
-                                        padding: const EdgeInsets.all(4),
-                                        color: Colors.grey[50],
-                                        child: const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  '۱۵ دی ۱۴۰۰',
-                                                  textDirection:
-                                                      TextDirection.rtl,
-                                                  textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                    fontFamily: 'tahoma',
-                                                    fontSize: 12,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 2,
-                                                ),
-                                                Icon(
-                                                  Icons.watch_later_outlined,
-                                                  size: 12,
-                                                  color: Colors.black,
-                                                )
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: <Widget>[
-                                                const Text(
-                                                  '۲۰ فیلم برتر سال ۲۰۲۱ به انتخاب فیلم تو مووی',
-                                                  textDirection:
-                                                      TextDirection.rtl,
-                                                  textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                    fontFamily: 'tahoma',
-                                                    fontSize: 12,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  height: 6,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    const Icon(
-                                                      Icons
-                                                          .keyboard_double_arrow_left_rounded,
-                                                      color: Color(0xff337ab7),
-                                                      size: 9,
-                                                    ),
-                                                    TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
-                                                          'مشاهده ادامه متن',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'tahoma',
-                                                            fontSize: 9,
-                                                            color: Color(
-                                                                0xff337ab7),
-                                                          ),
-                                                        )),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                            Container(
-                                              margin: const EdgeInsets.all(8),
-                                              width: 250,
-                                              height: 125,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(16),
-                                                  image: const DecorationImage(
-                                                    fit: BoxFit.fitWidth,
-                                                    image: AssetImage(
-                                                      'assets/images/1 (2).png',
-                                                    ),
-                                                  )),
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                const Divider(
-                                  color: Colors.grey,
-                                ),
-                                Container(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            margin: const EdgeInsets.all(8),
-                                            padding: const EdgeInsets.all(4),
-                                            color: Colors.grey[50],
-                                            child: const Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      '۱۵ دی ۱۴۰۰',
-                                                      textDirection:
-                                                          TextDirection.rtl,
-                                                      textAlign:
-                                                          TextAlign.right,
-                                                      style: TextStyle(
-                                                        fontFamily: 'tahoma',
-                                                        fontSize: 12,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 2,
-                                                    ),
-                                                    Icon(
-                                                      Icons
-                                                          .watch_later_outlined,
-                                                      size: 12,
-                                                      color: Colors.black,
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 62.5,
-                                          ),
-                                          Container(
-                                            margin:
-                                                const EdgeInsets.only(left: 38),
-                                            width: 120,
-                                            height: 40,
-                                            decoration: const BoxDecoration(
-                                                color: Color(0xff1D943C),
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(16),
-                                                  topRight: Radius.circular(16),
-                                                )),
-                                            child: const Center(
-                                              child: Text('آرشیو آخبار',
-                                                  style: TextStyle(
-                                                      fontFamily:
-                                                          'Far_Dinar_Two_Medium',
-                                                      fontSize: 15,
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.w400)),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: <Widget>[
-                                                const Text(
-                                                  'نگاهی به عملکرد پلتفرم‌های دیجیتال در سال کابوس‌وار ۲۰۲۱',
-                                                  textDirection:
-                                                      TextDirection.rtl,
-                                                  textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                    fontFamily: 'tahoma',
-                                                    fontSize: 12,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  height: 6,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    const Icon(
-                                                      Icons
-                                                          .keyboard_double_arrow_left_rounded,
-                                                      color: Color(0xff337ab7),
-                                                      size: 9,
-                                                    ),
-                                                    TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
-                                                          'مشاهده ادامه متن',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'tahoma',
-                                                            fontSize: 9,
-                                                            color: Color(
-                                                                0xff337ab7),
-                                                          ),
-                                                        )),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                            Container(
-                                              margin: const EdgeInsets.all(8),
-                                              width: 250,
-                                              height: 125,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(16),
-                                                  image: const DecorationImage(
-                                                    fit: BoxFit.fitWidth,
-                                                    image: AssetImage(
-                                                      'assets/images/2 (2).png',
-                                                    ),
-                                                  )),
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
+                    children: [
+                      NewsSection(),
+                      SizedBox(width: 900, height: 14000, child: MoviesList()),
                     ],
                   ),
                   //Right side of site
-                  const RightSideOfSite()
+                  RightSideOfSite()
                 ],
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Container(
+                height: 300,
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Color(0xff26872b).withOpacity(0.95),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'تمامی حقوق مادی و معنوی قالب، تصاویر و مطالب متعلق به فیلم تو مووی بوده و کپی برداری از آن پیگرد قانونی دارد.سئو و بهینه سازی توسط :',
+                      textAlign: TextAlign.right,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Far_Dinar_Two_Medium',
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    TextButton(onPressed: (){}, child: Text(
+                      'فیلم تو مووی',
+                      textAlign: TextAlign.right,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                          color: Color(0xffc1c1c1),
+                          fontFamily: 'Far_Dinar_Two_Medium',
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400),)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration:BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(24),
+                            border: Border.all(color: Colors.white ,width: 3)
+                          ) ,
+                          child: Center(
+                            child: Text('Alexa' , style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(width: 8,),
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration:BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(color: Colors.white ,width: 3)
+                          ) ,
+                          child: Center(
+                            child: Text('Search' , style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(width: 8,),
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration:BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(color: Colors.white ,width: 3)
+                          ) ,
+                          child: Center(
+                            child: Text('Cache' , style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(width: 8,),
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration:BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(color: Colors.white ,width: 3)
+                          ) ,
+                          child: Center(
+                            child: Text('Atom' , style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(width: 8,),
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration:BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(color: Colors.white ,width: 3)
+                          ) ,
+                          child: Center(
+                            child: Text('sitemap' , style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(width: 8,),
+                        TextButton(onPressed: (){}, child: Text(
+                          'فیلم تو مووی',
+                          textAlign: TextAlign.right,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              color: Color(0xffc1c1c1),
+                              fontFamily: 'Far_Dinar_Two_Medium',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),)),
+                        TextButton(onPressed: (){}, child: Text(
+                          'فیلم تو مووی',
+                          textAlign: TextAlign.right,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              color: Color(0xffc1c1c1),
+                              fontFamily: 'Far_Dinar_Two_Medium',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),)),
+                        TextButton(onPressed: (){}, child: Text(
+                          'فیلم تو مووی',
+                          textAlign: TextAlign.right,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              color: Color(0xffc1c1c1),
+                              fontFamily: 'Far_Dinar_Two_Medium',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),)),
+                        TextButton(onPressed: (){}, child: Text(
+                          'فیلم تو مووی',
+                          textAlign: TextAlign.right,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              color: Color(0xffc1c1c1),
+                              fontFamily: 'Far_Dinar_Two_Medium',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),)),
+
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
         ));
   }
 }
-
-

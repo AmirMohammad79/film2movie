@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           primary: const Color(0xFF1D943C),
         ),
       ),
-      home: PaginatedContainerList(itemCount: 8000,),
+      home: MyHomePage()
     );
   }
 }
