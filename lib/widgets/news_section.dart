@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/news_page.dart';
+
 class NewsSection extends StatelessWidget {
   const NewsSection({Key? key}) : super(key: key);
 
@@ -213,26 +215,35 @@ class NewsSection extends StatelessWidget {
                             const SizedBox(
                               height: 62.5,
                             ),
-                            Container(
-                              margin:
-                              const EdgeInsets.only(left: 38),
-                              width: 120,
-                              height: 40,
-                              decoration: const BoxDecoration(
-                                  color: Color(0xff1D943C),
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(16),
-                                    topRight: Radius.circular(16),
-                                  )),
-                              child: const Center(
-                                child: Text('آرشیو آخبار',
-                                    style: TextStyle(
-                                        fontFamily:
-                                        'Far_Dinar_Two_Medium',
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                        fontWeight:
-                                        FontWeight.w400)),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NewsPage()),
+                                );
+                              },
+                              child: Container(
+                                margin:
+                                const EdgeInsets.only(left: 38),
+                                width: 120,
+                                height: 40,
+                                decoration: const BoxDecoration(
+                                    color: Color(0xff1D943C),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16),
+                                      topRight: Radius.circular(16),
+                                    )),
+                                child: const Center(
+                                  child: Text('آرشیو آخبار',
+                                      style: TextStyle(
+                                          fontFamily:
+                                          'Far_Dinar_Two_Medium',
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight:
+                                          FontWeight.w400)),
+                                ),
                               ),
                             )
                           ],

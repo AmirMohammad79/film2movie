@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'mainHomePage.dart';
-import 'movies.dart';
+import 'pages/movies.dart';
 
 void main() {
   runApp(MyApp());

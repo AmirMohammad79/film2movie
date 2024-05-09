@@ -3,7 +3,7 @@ import 'dart:math';
 
   import 'package:flutter/material.dart';
 
-import 'model/movies.dart';
+import '../model/movies.dart';
   import 'package:http/http.dart' as http;
 
   class MoviesList extends StatefulWidget {
@@ -15,6 +15,7 @@ import 'model/movies.dart';
 }
 
 class _MoviesListState extends State<MoviesList> {
+    String baseUrl = 'https://localhost/movies';
    int itemCount = 120;
    int containersPerPage = 12;
    late PageController _pageController;
@@ -27,7 +28,7 @@ class _MoviesListState extends State<MoviesList> {
      fetchMovies();
    }
    Future<void> fetchMovies() async {
-     final response = await http.get(Uri.parse('https://api.example.com/movies'));
+     final response = await http.get(Uri.parse(baseUrl));
 
      if (response.statusCode == 200) {
        final List<dynamic> responseData = json.decode(response.body);
@@ -758,33 +759,49 @@ class _MoviesListState extends State<MoviesList> {
               },
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  if (_currentPage > 0) {
-                    _pageController.previousPage(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  }
-                },
-              ),
-              Text('Page ${_currentPage + 1} of $totalPages'),
-              IconButton(
-                icon: Icon(Icons.arrow_forward),
-                onPressed: () {
-                  if (_currentPage < totalPages - 1) {
-                    _pageController.nextPage(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  }
-                },
-              ),
-            ],
+          Container(
+            height: 80,
+            margin: EdgeInsets.only(bottom: 1100),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.black , blurStyle: BlurStyle.normal, blurRadius: 2)
+              ]
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(totalPages, (index) {
+                final pageNumber = index + 1;
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _currentPage = pageNumber;
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: pageNumber == _currentPage ? Color(0xfff8294e): Colors.blue,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                      color: pageNumber == _currentPage ? Color(0xfff8294e): Colors.blue,
+                    ),
+                    child: Text(
+                      pageNumber == _currentPage ?'$totalPages از $pageNumber':'$pageNumber',
+                      textAlign: TextAlign.right,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color:  pageNumber == _currentPage ? Colors.white: Colors.black,
+                        fontFamily:'tahoma',
+                        fontSize: 10
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
           ),
         ],
       );

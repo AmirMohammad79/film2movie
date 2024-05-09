@@ -1,19 +1,17 @@
 import 'package:film2movie/pages/labels.dart';
+import 'package:film2movie/pages/news.dart';
 import 'package:film2movie/widgets/left_side_of_site.dart';
 import 'package:film2movie/widgets/news_section.dart';
 import 'package:film2movie/widgets/right_side_of_site.dart';
 import 'package:flutter/material.dart';
-import 'pages/advertising.dart';
-import 'pages/maniHomePageReturn.dart';
-import 'pages/contactUs.dart';
-import 'package:film2movie/pages/movies.dart';
-
-class MyHomePage extends StatefulWidget {
+import 'advertising.dart';
+import 'contactUs.dart';
+import 'maniHomePageReturn.dart';
+class NewsPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _NewsPageState createState() => _NewsPageState();
 }
-
-class _MyHomePageState extends State<MyHomePage> {
+class _NewsPageState extends State<NewsPage> {
   bool _isHovered = false;
 
   @override
@@ -28,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: _isHovered
                       ? MediaQuery.of(context).size.width / 4
                       : MediaQuery.of(context).size.width /
-                          6, // Adjusted width when hovered
+                      6, // Adjusted width when hovered
                   height: MediaQuery.of(context).size.height / 23,
                   child: MouseRegion(
                     onEnter: (_) => setState(() => _isHovered = true),
@@ -49,14 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             duration: const Duration(milliseconds: 500),
                             child: _isHovered
                                 ? RotationTransition(
-                                    turns: const AlwaysStoppedAnimation(0.25),
-                                    child: Icon(Icons.search_rounded,
-                                        key: UniqueKey(),
-                                        color: const Color(0xFF1D943C)),
-                                  )
+                              turns: const AlwaysStoppedAnimation(0.25),
+                              child: Icon(Icons.search_rounded,
+                                  key: UniqueKey(),
+                                  color: const Color(0xFF1D943C)),
+                            )
                                 : Icon(Icons.search_rounded,
-                                    key: UniqueKey(),
-                                    color: const Color(0xFF1D943C)),
+                                key: UniqueKey(),
+                                color: const Color(0xFF1D943C)),
                           ),
                           iconColor: Colors.black,
                           hintText: '... جست و جو',
@@ -78,31 +76,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   const SizedBox(width: 16), // Add some space before words
                   InkWell(
                     onTap: () {
-
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Advertising()),
+                        MaterialPageRoute(
+                            builder: (context) => ReturnHomePage()),
                       );
                     },
                     child: const Padding(
                       padding: EdgeInsets.only(top: 16),
                       child: Text('تبلیغات',
-                          style: TextStyle(
-                              fontFamily: 'Far_Dinar_Two_Medium',
-                              fontWeight: FontWeight.w400)),
-                    ),
-                  ),
-                  const SizedBox(width: 24), // Add some space between words
-                  InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Labels()),
-                        );
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 16),
-                      child: Text('برچسب ها',
                           style: TextStyle(
                               fontFamily: 'Far_Dinar_Two_Medium',
                               fontWeight: FontWeight.w400)),
@@ -118,6 +100,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: const Padding(
                       padding: EdgeInsets.only(top: 16),
+                      child: Text('برچسب ها',
+                          style: TextStyle(
+                              fontFamily: 'Far_Dinar_Two_Medium',
+                              fontWeight: FontWeight.w400)),
+                    ),
+                  ),
+                  const SizedBox(width: 24), // Add some space between words
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Labels()),
+                      );
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 16),
                       child: Text('تماس با ما',
                           style: TextStyle(
                               fontFamily: 'Far_Dinar_Two_Medium',
@@ -129,8 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => ReturnHomePage()),
+                        MaterialPageRoute(builder: (context) => Advertising()),
                       );
                     },
                     child: const Padding(
@@ -166,8 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Column(
                     children: [
                       NewsSection(),
-                      /////////////////////////////////////////////////////
-                      SizedBox(width: 900, height: 14000, child: MoviesList()),
+                      SizedBox(width: 900, height: 14000, child: NewsList()),
                     ],
                   ),
                   //Right side of site
@@ -221,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(24),
                                 border:
-                                    Border.all(color: Colors.white, width: 3)),
+                                Border.all(color: Colors.white, width: 3)),
                             child: const Center(
                               child: Text(
                                 'Alexa',
@@ -242,7 +238,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(24),
                                 border:
-                                    Border.all(color: Colors.white, width: 3)),
+                                Border.all(color: Colors.white, width: 3)),
                             child: const Center(
                               child: Text(
                                 'Search',
@@ -263,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(24),
                                 border:
-                                    Border.all(color: Colors.white, width: 3)),
+                                Border.all(color: Colors.white, width: 3)),
                             child: const Center(
                               child: Text(
                                 'Cache',
@@ -284,7 +280,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(24),
                                 border:
-                                    Border.all(color: Colors.white, width: 3)),
+                                Border.all(color: Colors.white, width: 3)),
                             child: const Center(
                               child: Text(
                                 'Atom',
@@ -305,7 +301,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(24),
                                 border:
-                                    Border.all(color: Colors.white, width: 3)),
+                                Border.all(color: Colors.white, width: 3)),
                             child: const Center(
                               child: Text(
                                 'sitemap',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'mainHomePage.dart';
+import '../mainHomePage.dart';
 
 class ReturnHomePage extends StatelessWidget {
   @override
